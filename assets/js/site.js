@@ -7,3 +7,25 @@ hvis du vil have navnet på din valuta med fra options i dit select tag, så und
  prøv evt. at consol logge mySelectElement.options, hvor mySelectElement er det select element du har fundet i din DOM med getElementById()
 
  */
+
+ document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("convert").addEventListener("click", function () {
+        let amount = parseFloat(document.getElementById("amount").value);
+        let currency = document.getElementById("currency").value;
+        let resultElement = document.getElementById("result");
+
+        if (isNaN(amount) || amount <= 0) {
+            resultElement.textContent = "Indtast et gyldigt beløb";
+            return;
+        }
+
+        let exchangeRates = {
+            "EUR": 0.13,
+            "USD": 0.15,
+            "GBP": 0.11
+        };
+
+        let convertedAmount = amount * (exchangeRates[currency] || 1);
+        resultElement.textContent = convertedAmount.toFixed(2) + " " + currency;
+    });
+});

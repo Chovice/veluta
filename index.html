@@ -17,8 +17,21 @@
 </head>
 
 <body>
-
-
+    <h1>Valutaomregner</h1>
+    <section class="container">
+    <label for="amount">Beløb i DKK:</label>
+    <input type="number" id="amount" placeholder="Indtast beløb">
+    
+    <label for="currency">Vælg valuta:</label>
+    <select id="currency">
+        <option value="EUR">Euro (EUR)</option>
+        <option value="USD">US Dollar (USD)</option>
+        <option value="GBP">Britiske Pund (GBP)</option>
+    </select>
+    
+    <button id="convert">Beregn</button>
+    <p>Resultat: <span id="result">0</span></p>
+</section>
 
 </body>
 
